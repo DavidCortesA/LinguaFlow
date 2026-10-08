@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * LinguaFlow design tokens.
+ * Brand palette: midnight navy #101828, indigo #635BFF, cyan #43C6E8, off-white #F8FAFC,
+ * slate #667085. Semantic tokens below map the palette onto the roles shadcn/ui components
+ * expect. Text-on-background pairs are chosen to meet WCAG AA (4.5:1) for body text.
+ */
+@theme inline {
+  --color-navy: #101828;
+  --color-indigo: #635bff;
+  --color-cyan: #43c6e8;
+  --color-offwhite: #f8fafc;
+  --color-slate: #667085;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-success-muted: var(--success-muted);
+  --color-link: var(--link);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --popover: #ffffff;
+  --popover-foreground: #101828;
+  --primary: #635bff;
+  --primary-foreground: #ffffff;
+  --secondary: #eceeff;
+  --secondary-foreground: #2a2487;
+  --muted: #eef2f6;
+  --muted-foreground: #667085;
+  --accent: #def6fc;
+  --accent-foreground: #0b4f61;
+  --destructive: #b42318;
+  --success: #067647;
+  --success-muted: #e3f6ec;
+  --link: #4f46e5;
+  --border: #e4e7ec;
+  --input: #d0d5dd;
+  --ring: #635bff;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #101828;
+  --foreground: #f8fafc;
+  --card: #182235;
+  --card-foreground: #f8fafc;
+  --popover: #182235;
+  --popover-foreground: #f8fafc;
+  --primary: #635bff;
+  --primary-foreground: #ffffff;
+  --secondary: #26305a;
+  --secondary-foreground: #e0e3ff;
+  --muted: #1d2939;
+  --muted-foreground: #98a2b3;
+  --accent: #0e3b4a;
+  --accent-foreground: #b6ecf9;
+  --destructive: #f97066;
+  --success: #6ce9a6;
+  --success-muted: #0b3a28;
+  --link: #a5a0ff;
+  --border: #ffffff1f;
+  --input: #ffffff2e;
+  --ring: #8b85ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Restrained brand gradient: decorative only, never behind body text at low contrast. */
+.bg-brand-glow {
+  background-image:
+    radial-gradient(
+      60rem 28rem at 15% -10%,
+      color-mix(in oklab, #635bff 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50rem 24rem at 90% 0%,
+      color-mix(in oklab, #43c6e8 14%, transparent),
+      transparent 70%
+    );
+}
