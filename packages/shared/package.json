@@ -1,0 +1,24 @@
+{
+  "name": "@linguaflow/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Domain types, Zod schemas and API contracts shared by the web app and the API.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@linguaflow/config": "workspace:*",
+    "eslint": "^9.39.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.3"
+  }
+}

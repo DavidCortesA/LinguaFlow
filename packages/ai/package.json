@@ -1,0 +1,25 @@
+{
+  "name": "@linguaflow/ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Provider-neutral AI interfaces with a deterministic mock provider. Server-side only.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@linguaflow/shared": "workspace:*",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@linguaflow/config": "workspace:*",
+    "eslint": "^9.39.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.3"
+  }
+}
